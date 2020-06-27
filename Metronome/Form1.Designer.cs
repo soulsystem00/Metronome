@@ -31,12 +31,13 @@
             this.txt_BPM = new System.Windows.Forms.TextBox();
             this.btn_start = new System.Windows.Forms.Button();
             this.btn_end = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_BPM
             // 
             this.txt_BPM.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.txt_BPM.Location = new System.Drawing.Point(76, 60);
+            this.txt_BPM.Location = new System.Drawing.Point(109, 59);
             this.txt_BPM.Name = "txt_BPM";
             this.txt_BPM.Size = new System.Drawing.Size(144, 21);
             this.txt_BPM.TabIndex = 0;
@@ -44,7 +45,7 @@
             // 
             // btn_start
             // 
-            this.btn_start.Location = new System.Drawing.Point(226, 58);
+            this.btn_start.Location = new System.Drawing.Point(264, 58);
             this.btn_start.Name = "btn_start";
             this.btn_start.Size = new System.Drawing.Size(75, 23);
             this.btn_start.TabIndex = 1;
@@ -54,7 +55,7 @@
             // 
             // btn_end
             // 
-            this.btn_end.Location = new System.Drawing.Point(226, 58);
+            this.btn_end.Location = new System.Drawing.Point(264, 58);
             this.btn_end.Name = "btn_end";
             this.btn_end.Size = new System.Drawing.Size(75, 23);
             this.btn_end.TabIndex = 2;
@@ -63,11 +64,22 @@
             this.btn_end.Visible = false;
             this.btn_end.Click += new System.EventHandler(this.btn_end_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(28, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 15);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "input BPM";
+            // 
             // HB_Metronome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 143);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_end);
             this.Controls.Add(this.btn_start);
             this.Controls.Add(this.txt_BPM);
@@ -84,6 +96,7 @@
         private System.Windows.Forms.TextBox txt_BPM;
         private System.Windows.Forms.Button btn_start;
         private System.Windows.Forms.Button btn_end;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -37,6 +37,10 @@ namespace Metronome
         {
             if (String.IsNullOrEmpty(txt_BPM.Text) || Convert.ToInt32(txt_BPM.Text) <= 0 )
                 MessageBox.Show("Please input valid text", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if(Convert.ToInt32(txt_BPM.Text) > 600)
+            {
+                MessageBox.Show("Max BPM is 600", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else 
             {
                 btn_end.Visible = true;
@@ -59,6 +63,14 @@ namespace Metronome
             if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리
             {
                 e.Handled = true;
+            }
+            if(e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                if (btn_start.Visible == true)
+                {
+                    btn_start.PerformClick();
+                    btn_end.Focus();
+                }
             }
         }
 

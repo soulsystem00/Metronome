@@ -1,6 +1,6 @@
 ﻿namespace Metronome
 {
-    partial class Form1
+    partial class HB_Metronome
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -28,13 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.txt_BPM = new System.Windows.Forms.TextBox();
+            this.btn_start = new System.Windows.Forms.Button();
+            this.btn_end = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // txt_BPM
+            // 
+            this.txt_BPM.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.txt_BPM.Location = new System.Drawing.Point(76, 60);
+            this.txt_BPM.Name = "txt_BPM";
+            this.txt_BPM.Size = new System.Drawing.Size(144, 21);
+            this.txt_BPM.TabIndex = 0;
+            this.txt_BPM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_BPM_KeyPress);
+            // 
+            // btn_start
+            // 
+            this.btn_start.Location = new System.Drawing.Point(226, 58);
+            this.btn_start.Name = "btn_start";
+            this.btn_start.Size = new System.Drawing.Size(75, 23);
+            this.btn_start.TabIndex = 1;
+            this.btn_start.Text = "start";
+            this.btn_start.UseVisualStyleBackColor = true;
+            this.btn_start.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_end
+            // 
+            this.btn_end.Location = new System.Drawing.Point(226, 58);
+            this.btn_end.Name = "btn_end";
+            this.btn_end.Size = new System.Drawing.Size(75, 23);
+            this.btn_end.TabIndex = 2;
+            this.btn_end.Text = "end";
+            this.btn_end.UseVisualStyleBackColor = true;
+            this.btn_end.Visible = false;
+            this.btn_end.Click += new System.EventHandler(this.btn_end_Click);
+            // 
+            // HB_Metronome
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(379, 143);
+            this.Controls.Add(this.btn_end);
+            this.Controls.Add(this.btn_start);
+            this.Controls.Add(this.txt_BPM);
+            this.Name = "HB_Metronome";
+            this.Text = "HB_Metronome";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox txt_BPM;
+        private System.Windows.Forms.Button btn_start;
+        private System.Windows.Forms.Button btn_end;
     }
 }
 

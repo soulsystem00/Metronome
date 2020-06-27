@@ -24,12 +24,17 @@ namespace Metronome
 
         static void SoundPlay(object args)
         {
-            int BPM = (int)args;
-
-            while(true)
+            
+            while (true)
             {
+                Console.Beep(880, 100);
+                Thread.Sleep((int)args);
                 Console.Beep(440, 100);
-                Thread.Sleep(1000 * 60 / BPM - 100);
+                Thread.Sleep((int)args);
+                Console.Beep(440, 100);
+                Thread.Sleep((int)args);
+                Console.Beep(440, 100);
+                Thread.Sleep((int)args);
             }
         }
         
@@ -37,17 +42,18 @@ namespace Metronome
         {
             if (String.IsNullOrEmpty(txt_BPM.Text) || Convert.ToInt32(txt_BPM.Text) <= 0 )
                 MessageBox.Show("Please input valid text", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if(Convert.ToInt32(txt_BPM.Text) > 600)
+            else if(Convert.ToInt32(txt_BPM.Text) > 360)
             {
-                MessageBox.Show("Max BPM is 600", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Max BPM is 360", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else 
             {
                 btn_end.Visible = true;
                 btn_start.Visible = false;
-                bpm = Convert.ToInt32(txt_BPM.Text);
                 thread = new Thread(new ParameterizedThreadStart(SoundPlay));
-                thread.Start(bpm);
+                bpm = Convert.ToInt32(txt_BPM.Text);
+                int Duration = 1000 * 60 / bpm - 100;
+                thread.Start(Duration);
             }
         }
 
@@ -70,6 +76,11 @@ namespace Metronome
                 {
                     btn_start.PerformClick();
                     btn_end.Focus();
+                }
+                else if (btn_end.Visible == true)
+                {
+                    btn_end.PerformClick();
+                    btn_start.Focus();
                 }
             }
         }

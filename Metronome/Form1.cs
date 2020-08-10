@@ -17,9 +17,12 @@ namespace Metronome
     {
         int bpm;
         Thread thread;
+        bool start;
         public HB_Metronome()
         {
             InitializeComponent();
+            txt_BPM.Text = "60";
+            start = false;
         }
 
         static void SoundPlay(object args)
@@ -40,6 +43,7 @@ namespace Metronome
         
         private void button1_Click(object sender, EventArgs e)
         {
+            start = true;
             if (String.IsNullOrEmpty(txt_BPM.Text) || Convert.ToInt32(txt_BPM.Text) <= 0 )
                 MessageBox.Show("Please input valid text", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if(Convert.ToInt32(txt_BPM.Text) > 360)
@@ -61,6 +65,7 @@ namespace Metronome
         {
             btn_end.Visible = false;
             btn_start.Visible = true;
+            start = false;
             thread.Abort();
         }
 
@@ -87,7 +92,8 @@ namespace Metronome
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            thread.Abort();
+            if(start)
+                thread.Abort();
         }
     }
 }
